@@ -34,7 +34,7 @@ class ScrapperService:
 
             return response
         except Unauthorized:
-            self._logger.log("Expired session, login again")
+            self._logger.info("Expired session, login again")
             self._source_service.login()
 
             return self.get_today_access()
