@@ -1,30 +1,15 @@
-from consts.enum import Location, LocationStr
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
-from consts.scheduler import scheduler
 
-
-def clean_dict(data: dict[str, str]) -> dict[str, str]:
-    """
-    Remove None or empty string values from a dictionary and strip whitespace from string values.
-    """
-    cleaned_data = {}
-    for k, v in data.items():
-        if v is None or v == "":
-            continue
-        if isinstance(v, str):
-            cleaned_data[k] = v.strip()
-        else:
-            cleaned_data[k] = v
-    return cleaned_data
-
-
-def get_location_id(location_str: str) -> Location:
-    try:
-        location_enum = LocationStr(location_str)
-        return Location[location_enum.name]
-    except ValueError:
-        raise ValueError(f"Invalid location string: {location_str}")
+scheduler: dict[int, list[str]] = {
+    1: ["06:30", "23:00"],
+    2: ["06:30", "23:00"],
+    3: ["06:30", "23:00"],
+    4: ["06:30", "23:00"],
+    5: ["06:30", "23:00"],
+    6: ["09:00", "20:00"],
+    7: ["09:00", "14:00"],
+}
 
 
 def get_sleep_seconds() -> int:

@@ -1,6 +1,5 @@
 import logging
 from service.source_service import SourceService, Unauthorized
-from enum import Enum
 from service.transformer_service import TransformerService
 from service.access_service import AccessService
 
