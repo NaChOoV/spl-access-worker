@@ -7,3 +7,4 @@ services:
             dockerfile: Dockerfile
         image: spl-acccess-worker:latest
         network_mode: host
+        restart: always
